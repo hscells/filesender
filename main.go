@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"github.com/BurntSushi/toml"
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
@@ -12,6 +13,7 @@ import (
 
 type config struct {
 	FileName string `toml:"fileName"`
+	Port     string `toml:"port"`
 }
 
 var (
@@ -70,5 +72,5 @@ func main() {
 		return
 	})
 
-	log.Fatal(r.Run("localhost:9999"))
+	log.Fatal(r.Run(fmt.Sprintf("localhost:%s", config.Port)))
 }
