@@ -14,6 +14,7 @@ import (
 type config struct {
 	FileName string `toml:"fileName"`
 	Port     string `toml:"port"`
+	Host     string `toml:"host"`
 }
 
 var (
@@ -72,5 +73,5 @@ func main() {
 		return
 	})
 
-	log.Fatal(r.Run(fmt.Sprintf("localhost:%s", config.Port)))
+	log.Fatal(r.Run(fmt.Sprintf("%s:%s", config.Host, config.Port)))
 }

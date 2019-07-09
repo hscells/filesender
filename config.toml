@@ -1,2 +1,3 @@
 fileName="example.txt"
 port="80"
+host="localhost"
